@@ -137,4 +137,13 @@ describe('bitcoinjs-lib (addresses)', function () {
     assert.strictEqual(address, 'LZJSxZbjqJ2XVEquqfqHg1RQTDdfST5PTn')
     assert.strictEqual(wif, 'T7A4PUSgTDHecBxW1ZiYFrDNRih2o7M8Gf9xpoCgudPF9gDiNvuS')
   })
+  it('can generate a Dogecoin address', function () {
+    var dogecoin = bitcoin.networks.dogecoin
+    var keyPair = bitcoin.ECPair.makeRandom({ network: dogecoin, rng: rng })
+    var wif = keyPair.toWIF()
+    var address = keyPair.getAddress()
+
+    assert.strictEqual(address, 'LZJSxZbjqJ2XVEquqfqHg1RQTDdfST5PTn')
+    assert.strictEqual(wif, 'T7A4PUSgTDHecBxW1ZiYFrDNRih2o7M8Gf9xpoCgudPF9gDiNvuS')
+  })
 })
